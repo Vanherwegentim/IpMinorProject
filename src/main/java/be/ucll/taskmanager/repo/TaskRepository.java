@@ -25,7 +25,9 @@ public class TaskRepository implements JpaRepository<Integer, Task> {
         this.addTask(task1);
     }
 
-
+    public void removeTask(int id){
+        tasks.remove(id);
+    }
 
     public Map<Integer, Task> getMaps(){
         return tasks;

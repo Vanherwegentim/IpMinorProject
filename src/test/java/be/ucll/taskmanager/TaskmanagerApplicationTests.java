@@ -6,6 +6,7 @@ import be.ucll.taskmanager.repo.TaskRepository;
 import be.ucll.taskmanager.service.TaskService;
 import be.ucll.taskmanager.service.TaskServiceImp;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -17,6 +18,7 @@ import java.util.Map;
 
 @SpringBootTest
 class TaskmanagerApplicationTests {
+    @Autowired
     TaskService service = new TaskServiceImp(new TaskRepository());
 
     @Test
@@ -37,6 +39,22 @@ class TaskmanagerApplicationTests {
 
 
 
+
+    }
+
+    @Test
+    public void testAddTask(){
+        // setup
+        TaskDTO taskdto = new TaskDTO("Stofzuigen", "De slaapkamer moet gestofzuigt worden",LocalDate.of(2020,03,31), LocalTime.of(20,00));
+
+        // method to be tested
+        service.addTask(taskdto);
+
+        //checks
+        assertNotNull(taskdto);
+        assertEquals(2,service.getAllTasks().size());
+        Task task = service.getAllTasks().get(1);
+        assertNotNull(task);
     }
 
 }

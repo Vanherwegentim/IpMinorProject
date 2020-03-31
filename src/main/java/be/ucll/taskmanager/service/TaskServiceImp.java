@@ -43,6 +43,8 @@ public class TaskServiceImp implements TaskService {
         repo.getMaps().put(id,task);
     }
 
+
+
     @Override
     public Task getTask(int id) {
         return repo.getTask(id);
@@ -61,7 +63,13 @@ public class TaskServiceImp implements TaskService {
 //        return xf;
 
     }
-//    public static void main(String args[]){
+
+    @Override
+    public void removeTask(int id) {
+        repo.removeTask(id);
+    }
+
+    //    public static void main(String args[]){
 //        Task task = new Task("lol", "xd","2020-03-12","20:00");
 //        System.out.println(task.toString());
 //    }

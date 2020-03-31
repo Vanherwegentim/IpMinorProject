@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class TaskDTO {
     private String description;
-    private int id;
+
     private LocalDateTime datetime;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate date;
@@ -49,5 +49,9 @@ public class TaskDTO {
 
     public String getTitle() {
         return title;
+    }
+
+    public LocalDateTime getDatetime() {
+        return datetime;
     }
 }

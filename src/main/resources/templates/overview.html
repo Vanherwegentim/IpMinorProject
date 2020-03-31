@@ -17,6 +17,7 @@
     <td th:text="${task.tijdstip}"></td>
     <td ><a th:href="@{/tasks/{id}(id=${task.id})}">detail</a></td>
     <td><a th:href="@{/tasks/edit/{id}(id=${task.id})}">edit</a></td>
+    <td><a th:href="@{/tasks/delete/{id}(id=${task.id})}">delete</a></td>
 
 
 

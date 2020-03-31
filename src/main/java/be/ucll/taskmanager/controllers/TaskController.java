@@ -34,6 +34,12 @@ public class TaskController {
         return "edit";
     }
 
+    @GetMapping("/tasks/delete/{id}")
+    public String deleteTask(@PathVariable("id") int id,Model model){
+        service.removeTask(id);
+        return "redirect:/tasks";
+    }
+
 
 
 
