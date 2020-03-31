@@ -52,7 +52,7 @@ class TaskmanagerApplicationTests {
 
         //checks
         assertNotNull(taskdto);
-        assertEquals(2,service.getAllTasks().size());
+        assertEquals(3,service.getAllTasks().size());
         Task task = service.getAllTasks().get(1);
         assertNotNull(task);
     }
