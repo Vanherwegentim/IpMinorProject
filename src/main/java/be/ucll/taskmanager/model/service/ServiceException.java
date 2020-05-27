@@ -1,4 +1,4 @@
-package be.ucll.taskmanager.service;
+package be.ucll.taskmanager.model.service;
 
 public class ServiceException extends RuntimeException {
     public ServiceException ( String message){

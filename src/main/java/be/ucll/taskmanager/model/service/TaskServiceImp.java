@@ -1,17 +1,13 @@
-package be.ucll.taskmanager.service;
+package be.ucll.taskmanager.model.service;
 
-import be.ucll.taskmanager.domain.SubTask;
-import be.ucll.taskmanager.domain.Task;
-import be.ucll.taskmanager.dto.TaskDTO;
-import be.ucll.taskmanager.repo.TaskRepository;
+import be.ucll.taskmanager.model.domain.SubTask;
+import be.ucll.taskmanager.model.domain.Task;
+import be.ucll.taskmanager.model.dto.TaskDTO;
+import be.ucll.taskmanager.model.repo.TaskRepository;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Service
 public class TaskServiceImp implements TaskService {
@@ -33,7 +29,7 @@ public class TaskServiceImp implements TaskService {
     }
 
     @Override
-    public void addTask(TaskDTO taskdto) {
+    public TaskDTO addTask(TaskDTO taskdto) {
         int id = 0;
         int length = repo.getMaps().size();
         id = length;
@@ -41,6 +37,7 @@ public class TaskServiceImp implements TaskService {
         Task task = new Task(taskdto.getTitle(),taskdto.getDescription(),taskdto.getDate(),taskdto.getTime());
         task.setId(id);
         repo.getMaps().put(id,task);
+        return taskdto;
     }
 
 

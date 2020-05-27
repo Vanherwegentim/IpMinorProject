@@ -1,10 +1,10 @@
 package be.ucll.taskmanager;
 
-import be.ucll.taskmanager.domain.Task;
-import be.ucll.taskmanager.dto.TaskDTO;
-import be.ucll.taskmanager.repo.TaskRepository;
-import be.ucll.taskmanager.service.TaskService;
-import be.ucll.taskmanager.service.TaskServiceImp;
+import be.ucll.taskmanager.model.domain.Task;
+import be.ucll.taskmanager.model.dto.TaskDTO;
+import be.ucll.taskmanager.model.repo.TaskRepository;
+import be.ucll.taskmanager.model.service.TaskService;
+import be.ucll.taskmanager.model.service.TaskServiceImp;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -12,9 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @SpringBootTest
 class TaskmanagerApplicationTests {

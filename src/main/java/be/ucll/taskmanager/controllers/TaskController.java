@@ -1,9 +1,9 @@
 package be.ucll.taskmanager.controllers;
 
-import be.ucll.taskmanager.domain.SubTask;
-import be.ucll.taskmanager.domain.Task;
-import be.ucll.taskmanager.dto.TaskDTO;
-import be.ucll.taskmanager.service.TaskServiceImp;
+import be.ucll.taskmanager.model.domain.SubTask;
+import be.ucll.taskmanager.model.domain.Task;
+import be.ucll.taskmanager.model.dto.TaskDTO;
+import be.ucll.taskmanager.model.service.TaskServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +18,7 @@ public class TaskController {
     public String index(Model model){
         return "index";
     }
+
     @GetMapping("/tasks")
     public String overview(Model model){
 

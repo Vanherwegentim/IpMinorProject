@@ -1,13 +1,12 @@
-package be.ucll.taskmanager.dto;
+package be.ucll.taskmanager.model.dto;
 
-import be.ucll.taskmanager.service.ServiceException;
+import be.ucll.taskmanager.model.service.ServiceException;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 
 public class TaskDTO {
     private String description;

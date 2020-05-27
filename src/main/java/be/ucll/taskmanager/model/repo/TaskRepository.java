@@ -1,7 +1,7 @@
-package be.ucll.taskmanager.repo;
+package be.ucll.taskmanager.model.repo;
 
 
-import be.ucll.taskmanager.domain.Task;
+import be.ucll.taskmanager.model.domain.Task;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
