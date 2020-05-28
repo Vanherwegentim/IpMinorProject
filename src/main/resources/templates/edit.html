@@ -2,35 +2,38 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/css/taskmanager.css">
     <title>edit task</title>
 </head>
 <body>
 <div th:include="header.html"></div>
-<form th:action="@{'/tasks/edited/' + ${id}}" method="post" th:object="${task}" novalidate>
+<form th:action="@{'/tasks/edited/' + ${id}}" method="post" th:object="${taskDTO}" novalidate>
     <div class="formcontainer">
         <hr/>
         <div class="container">
-            <label for="title"><strong>Title</strong></label>
+            <label for="title"  ><strong th:text="#{title}">T</strong></label>
             <!--            <p th:errors="{title}"></p>-->
             <input type="text" th:field="*{title}" name="title" id="title" required>
 
-            <label for="description"><strong>Description</strong></label>
+            <label for="description"><strong th:text="#{description}"></strong></label>
             <!--            <p th:errors="{description}"></p>-->
             <input type="text" th:field="*{description}" id="description" name="description" required>
             <div>
-                <label for="date">due-date: </label>
+                <label for="date" th:text="#{duedate}"> </label>
                 <input type="date" name="date" id="date" >
             </div>
             <div>
-                <label for="time">due-time: </label>
+                <label for="time" th:text="#{duetime}"> </label>
                 <input type="time" name="time" id="time" >
             </div>
 
             <input type="hidden" th:field="*{id}" name="id">
 
         </div>
-        <button type="submit">Save task</button>
+        <button type="submit" th:text="#{savetask}"></button>
     </div>
 </form>
+
+
 </body>
 </html>

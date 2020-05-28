@@ -43,21 +43,14 @@ public class TaskServiceImp implements TaskService {
 
 
     @Override
-    public Task getTask(int id) {
-        return repo.getTask(id);
-//        Task xf = null;
-//        for(Task t: tasks){
-//            if(t.getId()== id){
-//                xf = t;
-//            }
-//
-//        }
-////        if(xf == null){
-////            throw new ServiceException("Task not found.");
-////        }else {
-////            return xf;
-////        }
-//        return xf;
+    public TaskDTO getTaskDTO(int id) {
+
+        Task task = repo.getTask(id);
+        TaskDTO taskDTO = new TaskDTO(task.getTitle(),task.getDescription(),task.getDate(),task.getTime());
+        taskDTO.setSubTasks(task.getAllSubTasks());
+        taskDTO.setId(id);
+        return taskDTO;
+
 
     }
 
@@ -66,10 +59,7 @@ public class TaskServiceImp implements TaskService {
         repo.removeTask(id);
     }
 
-    //    public static void main(String args[]){
-//        Task task = new Task("lol", "xd","2020-03-12","20:00");
-//        System.out.println(task.toString());
-//    }
+
 public void edit(TaskDTO task2, int id)  {
     Task task = repo.getTask(id);
 
@@ -82,7 +72,8 @@ public void edit(TaskDTO task2, int id)  {
 
 }
 
-public void addSubtask(Task task, SubTask subTask){
+public void addSubtask(TaskDTO taskdto, SubTask subTask){
+        Task task = new Task(taskdto.getTitle(),taskdto.getDescription(),taskdto.getDate(),taskdto.getTime());
         for(Task task1: repo.getMaps().values()){
             if(task1.equals(task)){
                 task1.addSubTask(subTask);

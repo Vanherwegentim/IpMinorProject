@@ -1,6 +1,10 @@
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 
 <header>
     <a href="/">Index</a>
-    <a href="/tasks">Overview</a>
-    <a href="/tasks/new">New task</a>
+    <a href="/tasks" th:text="#{overview}"></a>
+    <a href="/tasks/new"  th:text="#{newtask}"></a>
+    <a href="?lang=en" data-th-text="#{lang.eng}"></a>
+    <a href="?lang=nl" data-th-text="#{lang.nl}"></a>
+
 </header>

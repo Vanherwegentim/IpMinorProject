@@ -8,7 +8,8 @@ import java.util.List;
 public interface TaskService {
     List<Task> getAllTasks();
     TaskDTO addTask( TaskDTO taskdto);
-    Task getTask(int id);
+
+    TaskDTO getTaskDTO(int id);
     void removeTask(int id);
 }
 

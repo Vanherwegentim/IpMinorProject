@@ -3,28 +3,29 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/css/taskmanager.css">
     <title>Detail</title>
 </head>
 <div th:include="header.html"></div>
 <body>
-<h1>Task Detail</h1>
+<h1 th:text="#{detail}"></h1>
 <div th:if="${task != null}">
 <table>
 
 
     <tr>
-        <th>Title: </th>
+        <th th:text="#{title}"></th>
         <td th:text="${task.title}"></td>
 
 
     </tr>
     <tr>
-        <th>Description:</th>
+        <th th:text="#{description}"></th>
         <td th:text="${task.description}"></td>
     </tr>
 <tr>
 
-    <th>Due date: </th>
+    <th th:text="#{duedate}">  </th>
     <td th:text="${task.tijdstip}"></td>
 
 </tr>
@@ -33,8 +34,8 @@
 <div th:if="${task == null}">
     <h2>Task not found</h2>
 </div>
-<a th:href="@{/tasks/{id}/sub/create(id=${task.id})}">Add subtask</a>
-<h2>Subtasks</h2>
+<a th:href="@{/tasks/{id}/sub/create(id=${task.id})}" th:text="#{addsubtask}"></a>
+<h2 th:text="#{subtasks}" >Subtasks</h2>
 <table>
 <tr th:each="subTask:${subTasks}">
     <td th:text="${subTask.title}"></td>
@@ -42,5 +43,6 @@
 
 </tr>
 </table>
+
 </body>
 </html>

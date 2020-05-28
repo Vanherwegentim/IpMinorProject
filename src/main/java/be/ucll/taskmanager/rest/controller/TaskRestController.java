@@ -31,8 +31,8 @@ public class TaskRestController {
     }
 
     @GetMapping("/tasks/{id}")
-    public Task getTask(@PathVariable("id") int id){
-         return taskService.getTask(id);
+    public TaskDTO getTask(@PathVariable("id") int id){
+         return taskService.getTaskDTO(id);
 
     }
 }
