@@ -1,4 +1,4 @@
-package be.ucll.taskmanager.domain;
+package be.ucll.taskmanager.model.domain;
 
 public class SubTask {
     private String description, title;

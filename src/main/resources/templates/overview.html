@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
+    <link rel="stylesheet" type="text/css" href="/css/taskmanager.css">
+
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title th:text="#{title}"></title>
 </head>
 <body>
 <div th:include="header.html"></div>
-<h1>Tasks</h1>
+<h1 th:text="#{tasks}"></h1>
 <div th:if="${!tasks.isEmpty()}">
 <table>
 
@@ -17,6 +19,7 @@
     <td th:text="${task.tijdstip}"></td>
     <td ><a th:href="@{/tasks/{id}(id=${task.id})}">detail</a></td>
     <td><a th:href="@{/tasks/edit/{id}(id=${task.id})}">edit</a></td>
+    <td><a th:href="@{/tasks/delete/{id}(id=${task.id})}">delete</a></td>
 
 
 
@@ -27,5 +30,7 @@
 <div th:if="${tasks.isEmpty()}">
 
 </div>
+
+
 </body>
 </html>

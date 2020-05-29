@@ -1,15 +1,13 @@
-package be.ucll.taskmanager.domain;
+package be.ucll.taskmanager.model.domain;
 
-import be.ucll.taskmanager.service.ServiceException;
+import be.ucll.taskmanager.model.service.ServiceException;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import java.sql.Time;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class Task {

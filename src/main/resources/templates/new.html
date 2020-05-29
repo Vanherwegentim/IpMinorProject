@@ -1,30 +1,38 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/css/taskmanager.css">
     <title>new task</title>
 </head>
 <body>
 <div th:include="header.html"></div>
-<form method="post" action="/tasks">
-    <h4>Add task</h4>
+<form method="post" th:object="${taskDTO}" th:action="@{/tasks}" action="/tasks">
+
+    <h4 th:text="#{addtask}"></h4>
     <div>
-        <label for="title">title: </label>
-        <input type="text" name="title" id="title">
+        <label for="title" th:text="#{title}"> </label>
+        <p th:errors="*{title}"></p>
+        <input th:field="*{title}" type="text" name="title" id="title">
     </div>
     <div>
-        <label for="description">description: </label>
-        <input type="text" name="description" id="description">
+        <label for="description" th:text="#{description}"> </label>
+        <p th:errors="*{description}"></p>
+        <input th:field="*{description}" type="text" name="description" id="description">
     </div>
     <div>
-        <label for="date">due-date: </label>
-        <input type="date" name="date" id="date" >
+        <label for="date" th:text="#{duedate}"> </label>
+        <p th:errors="*{date}"></p>
+        <input th:field="*{date}" type="date" name="date" id="date" >
     </div>
     <div>
-        <label for="time">due-time: </label>
-        <input type="time" name="time" id="time" >
+        <label for="time" th:text="#{duetime}"> </label>
+        <p th:errors="*{time}"></p>
+        <input th:field="*{time}" type="time" name="time" id="time" >
     </div>
-    <input type="submit" value="Add task">
+    <input type="submit"  value="Submit">
 </form>
+
+
 </body>
 </html>

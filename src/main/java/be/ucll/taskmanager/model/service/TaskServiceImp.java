@@ -1,17 +1,13 @@
-package be.ucll.taskmanager.service;
+package be.ucll.taskmanager.model.service;
 
-import be.ucll.taskmanager.domain.SubTask;
-import be.ucll.taskmanager.domain.Task;
-import be.ucll.taskmanager.dto.TaskDTO;
-import be.ucll.taskmanager.repo.TaskRepository;
+import be.ucll.taskmanager.model.domain.SubTask;
+import be.ucll.taskmanager.model.domain.Task;
+import be.ucll.taskmanager.model.dto.TaskDTO;
+import be.ucll.taskmanager.model.repo.TaskRepository;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Service
 public class TaskServiceImp implements TaskService {
@@ -33,7 +29,7 @@ public class TaskServiceImp implements TaskService {
     }
 
     @Override
-    public void addTask(TaskDTO taskdto) {
+    public TaskDTO addTask(TaskDTO taskdto) {
         int id = 0;
         int length = repo.getMaps().size();
         id = length;
@@ -41,30 +37,29 @@ public class TaskServiceImp implements TaskService {
         Task task = new Task(taskdto.getTitle(),taskdto.getDescription(),taskdto.getDate(),taskdto.getTime());
         task.setId(id);
         repo.getMaps().put(id,task);
+        return taskdto;
+    }
+
+
+
+    @Override
+    public TaskDTO getTaskDTO(int id) {
+
+        Task task = repo.getTask(id);
+        TaskDTO taskDTO = new TaskDTO(task.getTitle(),task.getDescription(),task.getDate(),task.getTime());
+        taskDTO.setSubTasks(task.getAllSubTasks());
+        taskDTO.setId(id);
+        return taskDTO;
+
+
     }
 
     @Override
-    public Task getTask(int id) {
-        return repo.getTask(id);
-//        Task xf = null;
-//        for(Task t: tasks){
-//            if(t.getId()== id){
-//                xf = t;
-//            }
-//
-//        }
-////        if(xf == null){
-////            throw new ServiceException("Task not found.");
-////        }else {
-////            return xf;
-////        }
-//        return xf;
-
+    public void removeTask(int id) {
+        repo.removeTask(id);
     }
-//    public static void main(String args[]){
-//        Task task = new Task("lol", "xd","2020-03-12","20:00");
-//        System.out.println(task.toString());
-//    }
+
+
 public void edit(TaskDTO task2, int id)  {
     Task task = repo.getTask(id);
 
@@ -77,7 +72,9 @@ public void edit(TaskDTO task2, int id)  {
 
 }
 
-public void addSubtask(Task task, SubTask subTask){
+public void addSubtask(TaskDTO taskdto, SubTask subTask){
+        Task task = new Task(taskdto.getTitle(),taskdto.getDescription(),taskdto.getDate(),taskdto.getTime());
+        taskdto.addSubTask(subTask);
         for(Task task1: repo.getMaps().values()){
             if(task1.equals(task)){
                 task1.addSubTask(subTask);
