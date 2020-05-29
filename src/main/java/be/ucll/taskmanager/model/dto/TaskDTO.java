@@ -88,4 +88,28 @@ public class TaskDTO {
     public int getId() {
         return id;
     }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setDatetime(LocalDateTime datetime) {
+        this.datetime = datetime;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+
+    public void setTime(LocalTime time) {
+        this.time = time;
+    }
+
+    public void setLijst(List<SubTask> lijst) {
+        this.lijst = lijst;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
 }

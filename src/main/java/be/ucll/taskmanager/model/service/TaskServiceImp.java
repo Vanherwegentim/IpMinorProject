@@ -74,6 +74,7 @@ public void edit(TaskDTO task2, int id)  {
 
 public void addSubtask(TaskDTO taskdto, SubTask subTask){
         Task task = new Task(taskdto.getTitle(),taskdto.getDescription(),taskdto.getDate(),taskdto.getTime());
+        taskdto.addSubTask(subTask);
         for(Task task1: repo.getMaps().values()){
             if(task1.equals(task)){
                 task1.addSubTask(subTask);

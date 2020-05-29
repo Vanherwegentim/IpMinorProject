@@ -7,7 +7,7 @@
 </head>
 <body>
 <div th:include="header.html"></div>
-<form method="post" th:object="${taskDTO}" th:action="@{/tasks}" action="#">
+<form method="post" th:object="${taskDTO}" th:action="@{/tasks}" action="/tasks">
 
     <h4 th:text="#{addtask}"></h4>
     <div>

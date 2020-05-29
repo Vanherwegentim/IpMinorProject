@@ -78,9 +78,10 @@ public class TaskController {
             System.out.println(bindingResult);
             return "new";
         }
-        System.out.println();
-        service.addTask(taskDTO);
-        return "redirect:/tasks";
+        else {
+            service.addTask(taskDTO);
+            return "redirect:/tasks";
+        }
     }
 
     @GetMapping("/tasks/{id}/sub/create")
